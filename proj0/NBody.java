@@ -40,9 +40,9 @@ public class NBody {
 
     public static void main(String[] args) {
         // Collecting All Needed Input
-        double T = 157788000.0;
-        double dt = 25000.0;
-        String filename = "./data/planets.txt";
+        double T = Double.parseDouble(args[0]);
+        double dt = Double.parseDouble(args[1]);
+        String filename = args[2];
         double radius = readRadius(filename);
         Planet[] planetArray = readPlanets(filename);
 
@@ -69,7 +69,7 @@ public class NBody {
             for (int i = 0; i < planetArray.length; i++) {
                 planetArray[i].update(dt, xForces[i], yForces[i]);
             }
-            StdDraw.picture(0, 0, "./data/images/starfield.jpg");
+            StdDraw.picture(0, 0, "./images/starfield.jpg");
             Arrays.stream(planetArray).forEach(Planet::draw);
             StdDraw.show();
             StdDraw.pause(10);
