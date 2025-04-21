@@ -116,6 +116,6 @@ public class LinkedListDeque<T> {
         if (index == 0) {
             return ptr.value;
         }
-        return heplGetRecursive(ptr.next, index - 1);
+        return helpGetRecursive(ptr.next, index - 1);
     }
 }
