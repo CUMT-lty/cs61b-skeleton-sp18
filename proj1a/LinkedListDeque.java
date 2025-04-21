@@ -1,6 +1,3 @@
-package com.litianyu.basics.project1a;
-
-
 /**
  * doubled linked list implemented with linked list
  */
