@@ -1,35 +1,29 @@
-/**
- * doubled linked list implemented with linked list
- */
 public class LinkedListDeque<T> {
 
     private static class ListNode<T> {
-        public T value;
-        public ListNode<T> prev;
-        public ListNode<T> next;
+        private T value;
+        private ListNode<T> prev;
+        private ListNode<T> next;
 
-        public ListNode() {
+        private ListNode() {
             this.value = null;
             this.prev = null;
             this.next = null;
         }
 
-        public ListNode(T value) {
+        private ListNode(T value) {
             this.value = value;
             this.prev = null;
             this.next = null;
         }
     }
 
-    public ListNode<T> sentinel;
-    public int size;
+    private ListNode<T> sentinel;
+    private int size;
 
-    /**
-     * Creates an empty linked list deque.
-     */
     public LinkedListDeque () {
         this.size = 0;
-        this.sentinel = new ListNode<>(); // sentinel will never be null
+        this.sentinel = new ListNode<>();
         this.sentinel.value = null;
         this.sentinel.next = this.sentinel;
         this.sentinel.prev = this.sentinel;
@@ -112,16 +106,16 @@ public class LinkedListDeque<T> {
         if (index < 0 || index >= this.size) {
             return null;
         }
-        return _getRecursive(this.sentinel.next, index);
+        return helpGetRecursive(this.sentinel.next, index);
     }
 
-    public T _getRecursive(ListNode<T> ptr, int index) {
+    public T helpGetRecursive(ListNode<T> ptr, int index) {
         if (ptr == this.sentinel) {
             return null;
         }
         if (index == 0) {
             return ptr.value;
         }
-        return _getRecursive(ptr.next, index - 1);
+        return heplGetRecursive(ptr.next, index - 1);
     }
 }

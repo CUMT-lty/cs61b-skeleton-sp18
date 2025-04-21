@@ -1,18 +1,11 @@
-/**
- * doubled linked list implemented with array
- */
 public class ArrayDeque<T> {
 
     private int capacity;
-    private Object[] carray; // 循环队列的好处是头插和尾插都不需要移动元素，只有扩容的时候才需要
+    private Object[] carray;
     private int size;
     private int nextFirst;
     private int nextLast;
 
-
-    /**;
-     * Creates an empty array deque.
-     */
     public ArrayDeque() {
         this.capacity = 8;
         this.carray = new Object[this.capacity];
@@ -58,12 +51,7 @@ public class ArrayDeque<T> {
         return this.size;
     }
 
-    public int capacity() {
-        return this.capacity;
-    }
-
     public void printDeque() {
-        // 队头位置就是 nextFirst 的后一个索引
         for (int i = (this.nextFirst + 1) % this.capacity; i < this.nextLast; i = (i + 1) % this.capacity) {
             if (i != (this.nextFirst + 1) % this.capacity) {
                 System.out.print(" ");
@@ -77,7 +65,7 @@ public class ArrayDeque<T> {
         if (this.size == 0) {
             return null;
         }
-        this.nextFirst = (this.nextFirst + 1 ) % this.capacity;
+        this.nextFirst = (this.nextFirst + 1) % this.capacity;
         T rm = (T) this.carray[this.nextFirst];
         this.size--;
         shrinkCapacity();
@@ -97,7 +85,7 @@ public class ArrayDeque<T> {
 
     private void shrinkCapacity() {
         if (this.capacity >= 16 && this.size < this.capacity / 4) {
-            Object[] smaller = new Object[this.capacity/2];
+            Object[] smaller = new Object[this.capacity / 2];
             int tmp = (this.nextFirst + 1) % this.capacity;
             for (int i = 0; tmp != this.nextLast; i++) {
                 smaller[i] = this.carray[tmp];
