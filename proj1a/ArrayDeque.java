@@ -52,7 +52,8 @@ public class ArrayDeque<T> {
     }
 
     public void printDeque() {
-        for (int i = (this.nextFirst + 1) % this.capacity; i < this.nextLast; i = (i + 1) % this.capacity) {
+        for (int i = (this.nextFirst + 1) % this.capacity;
+             i < this.nextLast; i = (i + 1) % this.capacity) {
             if (i != (this.nextFirst + 1) % this.capacity) {
                 System.out.print(" ");
             }
