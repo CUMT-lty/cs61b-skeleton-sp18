@@ -10,7 +10,7 @@ public class Palindrome {
 
     public boolean isPalindrome(String word) {
         char[] charArray = word.toLowerCase().toCharArray();
-        return _isPalindrome(charArray, 0);
+        return helpIsPalindrome(charArray, 0);
     }
 
     public boolean isPalindrome(String word, CharacterComparator cc) {
@@ -29,16 +29,16 @@ public class Palindrome {
         return true;
     }
 
-    private boolean _isPalindrome(char[] word, int i) {
+    private boolean helpIsPalindrome(char[] word, int i) {
         if (i >= word.length / 2) {
             return true;
         }
         if (word.length == 0 || word.length == 1) {
             return true;
-        }
-        if (word[i] != word[word.length-1-i]) {
+        }x
+        if (word[i] != word[word.length - 1 - i]) {
             return false;
         }
-        return _isPalindrome(word, i+1);
+        return helpIsPalindrome(word, i + 1);
     }
 }
