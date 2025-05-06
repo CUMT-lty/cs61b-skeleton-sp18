@@ -35,7 +35,7 @@ public class Palindrome {
         }
         if (word.length == 0 || word.length == 1) {
             return true;
-        }x
+        }
         if (word[i] != word[word.length - 1 - i]) {
             return false;
         }
